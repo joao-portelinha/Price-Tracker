@@ -1,0 +1,33 @@
+<div class="w-4/4 shadow-md p-10 bg-white shadow-blue-200/20 mx-36 my-10">
+    <div class="flex justify-between items-center mb-4 mt-4">
+        <input type="text" placeholder="Search" class="w-full border p-2 rounded-lg">
+        <select class="border p-2 rounded-lg">
+            <option value="all">Test</option>
+        </select>
+    </div>
+    
+    <table class="w-full border-4">
+        <thead>
+            <tr>
+                <th class="p-3 text-left bg-gray-200">#</th>
+                <th class="p-3 text-left bg-gray-200">Produto</th>
+                <th class="p-3 text-left bg-gray-200">Preço</th>
+                <th class="p-3 text-left bg-gray-200">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of products | slice:1; let i = index" class="border-2">
+                <td class="p-3 border-2">{{ i }}</td>
+                <td class="p-3 border-2">{{ row[0] }}</td>
+                <td class="p-3 border-2">{{ row[1] }}</td>
+                <td class="p-3 border-2">{{ row[2] }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="mt-4 flex items-center justify-center">
+        <button class="text-cyan-500 border-4 py-2 px-4 rounded-l-lg cursor-pointer mr-5">Anterior</button>
+        <button class="py-2 px-4 cursor-pointer bg-cyan-500 text-white"> 1 </button>
+        <button class="text-cyan-500 border-4 py-2 px-4 rounded-r-lg cursor-pointer ml-5">Proximo</button>
+    </div>
+    </div>
