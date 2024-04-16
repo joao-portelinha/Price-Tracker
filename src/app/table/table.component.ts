@@ -21,7 +21,7 @@ export class TableComponent implements OnInit {
     this.http.get('assets/prices.csv', { responseType: 'text' })
       .subscribe(data => {
         const rows = data.split('\n');
-        for (let i = 1; i < rows.length; i++) {
+        for (let i = 1; i < rows.length-1; i++) {
           const columns = rows[i].split(',');
           this.products.push(columns);
           this.updateDate = this.products[0][2];

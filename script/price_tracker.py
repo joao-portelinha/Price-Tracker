@@ -61,6 +61,7 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
     csv_writer = csv.writer(file)
     csv_writer.writerows(rows)
     
+
 driver.quit()
 
 try:
