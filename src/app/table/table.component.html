@@ -1,8 +1,13 @@
+<div class="text-center mb-6">
+    <h1 class="text-4xl font-bold text-gray-800">Price Tracker</h1>
+    <p>Last Updated on: </p><p>{{ updateDate }}</p>
+</div>
+
 <div class="w-4/4 shadow-md p-10 bg-white shadow-blue-200/20 mx-36 my-10">
     <div class="flex justify-between items-center mb-4 mt-4">
-        <input type="text" placeholder="Search" class="w-full border p-2 rounded-lg">
-        <select class="border p-2 rounded-lg">
-            <option value="all">Test</option>
+        <input type="text" placeholder="Procurar" class="w-full border p-2 rounded-lg" #filter (keyup)="filterData(filter.value)">
+        <select class="border p-2 rounded-lg" #pageSize (change)="changePageSize(pageSize.value)">
+            <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
         </select>
     </div>
     
@@ -16,8 +21,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let row of products | slice:1; let i = index" class="border-2">
-                <td class="p-3 border-2">{{ i }}</td>
+            <tr *ngFor="let row of visibleData(); let i = index" class="border-2">
+                <td class="p-3 border-2">{{ i + 1 }}</td>
                 <td class="p-3 border-2">{{ row[0] }}</td>
                 <td class="p-3 border-2">{{ row[1] }}</td>
                 <td class="p-3 border-2">{{ row[2] }}</td>
@@ -25,9 +30,17 @@
         </tbody>
     </table>
     
-    <div class="mt-4 flex items-center justify-center">
-        <button class="text-cyan-500 border-4 py-2 px-4 rounded-l-lg cursor-pointer mr-5">Anterior</button>
-        <button class="py-2 px-4 cursor-pointer bg-cyan-500 text-white"> 1 </button>
-        <button class="text-cyan-500 border-4 py-2 px-4 rounded-r-lg cursor-pointer ml-5">Proximo</button>
+    <div class="mt-4 flex items-center justify-center" *ngIf="totalPages > 1">
+        <button (click)="previousPage()" class="text-blue-500 border-4 py-2 px-4 rounded-l-lg cursor-pointer mr-5" [class.hidden]="currentPage === 1">Anterior</button>
+    
+        <button 
+        *ngFor="let pageNumber of pageNumbers(); let i = index " 
+        class="py-2 px-4 cursor-pointer" 
+        [class.bg-blue-500]="i + 1 === currentPage"
+        [class.text-white]="i + 1 === currentPage"
+        (click)="changePage(i+1)"> {{ i + 1 }} </button>
+    
+        <button (click)="nextPage()" class="text-blue-500 border-4 py-2 px-4 rounded-r-lg cursor-pointer ml-5" [class.hidden]="currentPage === totalPages">Próximo</button>
     </div>
+    
     </div>

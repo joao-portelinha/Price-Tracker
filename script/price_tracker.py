@@ -20,7 +20,7 @@ chrome_options.add_argument("--headless=new")
 chrome_options.add_argument(f'user-agent={ua}')
 driver = webdriver.Chrome(options=chrome_options)
 
-csv_file_path = "src/assets/prices.csv"
+csv_file_path = "docs/assets/prices.csv"
 
 if os.path.exists(csv_file_path):
     with open(csv_file_path, mode='r', newline='', encoding='utf-8') as file:
@@ -52,9 +52,9 @@ for product_name, url in product_urls.items():
     if existing_row:
         existing_row[2] = existing_row[1]
         existing_row[1] = price
-        existing_row[2] = time.strftime("%d/%m/%Y")
+        existing_row[2] = current_date
     else:
-        new_row = [product_name, price, time.strftime("%d/%m/%Y")]
+        new_row = [product_name, price, current_date]
         rows.append(new_row)
         
 with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
