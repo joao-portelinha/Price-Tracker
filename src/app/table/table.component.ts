@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
   products: any[] = [];
 
   constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
+  
+  ngOnInit() {
     this.readCsvData();
   }
 
