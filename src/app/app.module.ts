@@ -15,7 +15,8 @@ import { TableComponent } from './table/table.component';
     AppRoutingModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    TableComponent
   ],
   bootstrap: [AppComponent]
 })
