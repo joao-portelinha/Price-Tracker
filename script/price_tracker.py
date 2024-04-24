@@ -52,9 +52,10 @@ for product_name, url in product_urls.items():
     if existing_row:
         existing_row[2] = existing_row[1]
         existing_row[1] = price
-        existing_row[2] = current_date
+        existing_row[2] = merchant_tag
+        existing_row[3] = current_date
     else:
-        new_row = [product_name, price, current_date]
+        new_row = [product_name, price, merchant_tag, current_date]
         rows.append(new_row)
         
 with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
@@ -64,10 +65,10 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
 
 driver.quit()
 
-try:
-    subprocess.run(["git", "add", "."], check=True)
-    subprocess.run(["git", "commit", "-m", "Update " + current_date], check=True)
-    subprocess.run(["git", "push"], check=True)
-    print("Changes committed and pushed successfully.")
-except subprocess.CalledProcessError as e:
-    print("Error:", e)
+# try:
+#     subprocess.run(["git", "add", "."], check=True)
+#     subprocess.run(["git", "commit", "-m", "Update " + current_date], check=True)
+#     subprocess.run(["git", "push"], check=True)
+#     print("Changes committed and pushed successfully.")
+# except subprocess.CalledProcessError as e:
+#     print("Error:", e)
