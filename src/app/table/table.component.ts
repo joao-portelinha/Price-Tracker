@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { vendorImageMapping } from '../vendor-image-mapping';
 
 @Component({
   selector: 'app-table',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   products: string[][] = [];
+  vendorImageMapping = vendorImageMapping;
 
   constructor(private http: HttpClient) { }
   
