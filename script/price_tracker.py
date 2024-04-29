@@ -10,7 +10,9 @@ product_urls = {
     'PowerColor Hellhound OC Radeon RX 7800 XT': 'https://pt.pcpartpicker.com/product/BtkH99/powercolor-hellhound-oc-radeon-rx-7800-xt-16-gb-video-card-rx-7800-xt-16g-loc',
     'ASRock Challenger OC Radeon RX 7800 XT' : 'https://pt.pcpartpicker.com/product/rfV2FT/asrock-challenger-oc-radeon-rx-7800-xt-16-gb-video-card-rx7800xt-cl-16go',
     'ASRock Phantom Gaming OC Radeon RX 7800 XT' : 'https://pt.pcpartpicker.com/product/2NsV3C/asrock-phantom-gaming-oc-radeon-rx-7800-xt-16-gb-video-card-rx7800xt-pg-16go',
-    'XFX Speedster QICK 319 Core Radeon RX 7800 XT':'https://pt.pcpartpicker.com/product/GYfxFT/xfx-speedster-qick-319-core-radeon-rx-7800-xt-16-gb-video-card-rx-78tqickf9'
+    'XFX Speedster QICK 319 Core Radeon RX 7800 XT':'https://pt.pcpartpicker.com/product/GYfxFT/xfx-speedster-qick-319-core-radeon-rx-7800-xt-16-gb-video-card-rx-78tqickf9',
+    'XFX Speedster MERC 319 Black Radeon RX 7800 XT':'https://pt.pcpartpicker.com/product/MQwmP6/xfx-speedster-merc-319-black-radeon-rx-7800-xt-16-gb-video-card-rx-78tmercb9',
+    'PowerColor Red Devil OC Radeon RX 7800 XT':'https://pt.pcpartpicker.com/product/zdMMnQ/powercolor-red-devil-oc-radeon-rx-7800-xt-16-gb-video-card-rx-7800-xt-16g-eoc'
 }
 
 ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" # Preciso para passar a verificação do site
