@@ -29,6 +29,13 @@
                 <td class="p-0 border-2 text-center">
                     <img *ngIf="vendorImageMapping[row[2]]" [src]="vendorImageMapping[row[2]]" alt="{{ row[2] }}" class="mx-auto max-w-full max-h-12">
                 </td>
+                <td class="p-0 border-2 text-center">
+                    <a target="_blank" href="{{ row[3] }}"> <!-- Move <a> tag outside <button> tag -->
+                        <button type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-8 py-2.5">
+                            Link
+                        </button>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>

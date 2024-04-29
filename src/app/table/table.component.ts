@@ -26,7 +26,7 @@ export class TableComponent implements OnInit {
         for (let i = 1; i < rows.length-1; i++) {
           const columns = rows[i].split(',');
           this.products.push(columns);
-          this.updateDate = this.products[0][3];
+          this.updateDate = this.products[0][4];
         }
       });
   }
