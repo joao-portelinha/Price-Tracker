@@ -1,27 +1,21 @@
-# PriceTracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+# Price Tracker
 
-## Development server
+Python script that will scrape especific PCPartPicker item pages to get the best current price for each of the items to a .CSV file. Angular web page that will read and display the data from the .CSV file.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The Python script will run every time i turn my computer on and will commit/push the updated .CSV file to the docs folder where it will update the GitHub Pages webpage (joao-portelinha.github.io/Price-Tracker/).
+STILL WIP
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Stack
 
-## Build
+**Front-end:** Angular, TailwindCSS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**"Back-end":** Python, Selenium, BeautifulSoup
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Screenshots
+![Python Script](https://i.ibb.co/1RBrrdT/Captura-de-ecr-2024-04-28-142400.png)
 
-## Running end-to-end tests
+![Web Page](https://i.ibb.co/VvmBp8W/Captura-de-ecr-2024-04-28-142431.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
