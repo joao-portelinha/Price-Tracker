@@ -19,3 +19,7 @@ STILL WIP
 
 ![Web Page](https://i.ibb.co/VvmBp8W/Captura-de-ecr-2024-04-28-142431.png)
 
+## TODO  
+
+- [ ] Dark Mode.  
+- [ ] Table order by price, name, ... .  
