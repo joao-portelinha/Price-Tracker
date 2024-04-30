@@ -22,4 +22,5 @@ STILL WIP
 ## TODO  
 
 - [ ] Dark Mode.  
-- [ ] Table order by price, name, ... .  
+- [ ] Table order by price, name, etc .  
+- [ ] JUST AN IDEIA: add a page for each product where it's possible to see more price data, like highest, lowest, graph, etc.
