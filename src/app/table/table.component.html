@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let row of visibleData(); let i = index" class="border-2">
+            <tr *ngFor="let row of visibleData(); let i = index" class="border-2 hover:bg-gray-100ng">
                 <td class="p-3 border-2">{{ i + 1 }}</td>
                 <td class="p-3 border-2">{{ row[0] }}</td>
                 <td class="p-3 border-2">{{ row[1] }}</td>
@@ -53,4 +53,4 @@
         <button (click)="nextPage()" class="text-blue-500 border-4 py-2 px-4 rounded-r-lg cursor-pointer ml-5" [class.hidden]="currentPage === totalPages">Próximo</button>
     </div>
     
-    </div>
+</div>

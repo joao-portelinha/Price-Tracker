@@ -36,7 +36,7 @@ export class TableComponent implements OnInit {
   pageSize: number = 10;
   totalPages: number = 0;
   filteredProducts: string[][] = this.products;
-  pageSizes: Array<number> = [10, 25, 50]
+  pageSizes: Array<number> = [10, 25, 50];
 
   visibleData() {
     let startIndex = (this.currentPage - 1) * this.pageSize;
