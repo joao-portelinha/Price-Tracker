@@ -73,7 +73,7 @@ driver.quit()
 try:
     subprocess.run(["git", "add", "."], check=True)
     subprocess.run(["git", "commit", "-m", "Update " + current_date], check=True)
-    subprocess.run(["git", "push"], check=True)
+    subprocess.run(["git", "push", "origin", "gh-pages"], check=True)
     print("Changes committed and pushed successfully.")
 except subprocess.CalledProcessError as e:
     print("Error:", e)
