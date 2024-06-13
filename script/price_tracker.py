@@ -71,7 +71,10 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
 driver.quit()
 
 try:
+    subprocess.run(["git", "add", "."], check=True)
+    subprocess.run(["git", "stash"], check=True)
     subprocess.run(["git", "checkout", "gh-pages"])
+    subprocess.run(["git", "stash", "pop", "-X", "ours"], check=True)
     subprocess.run(["git", "add", "."], check=True)
     subprocess.run(["git", "commit", "-m", "Update " + current_date], check=True)
     subprocess.run(["git", "push", "origin", "gh-pages"], check=True)
