@@ -71,42 +71,10 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
 driver.quit()
 
 try:
-<<<<<<< HEAD
-    # Check if there are any changes in the working directory
-    status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
-    
-    if status.stdout:
-        # There are changes, so stash them
-        subprocess.run(["git", "stash"], check=True)
-
-    # Switch to the gh-pages branch
-    subprocess.run(["git", "checkout", "gh-pages"], check=True)
-
-    # Pull latest changes from gh-pages branch
-    subprocess.run(["git", "pull", "origin", "gh-pages"], check=True)
-
-    # Modify the CSV file (e.g., update it programmatically)
-
-    # Add the updated CSV file
-    subprocess.run(["git", "add", csv_file_path], check=True)
-
-    # Commit the changes
-    subprocess.run(["git", "commit", "-m", f"Update CSV file {current_date}"], check=True)
-
-    # Push the changes to the remote gh-pages branch
-=======
+    subprocess.run(["git", "checkout", "gh-pages"])
     subprocess.run(["git", "add", "."], check=True)
     subprocess.run(["git", "commit", "-m", "Update " + current_date], check=True)
->>>>>>> parent of be68454 (Update 25/05/2024 - 14:27:40)
     subprocess.run(["git", "push", "origin", "gh-pages"], check=True)
-
-    # Switch back to the main branch
-    subprocess.run(["git", "checkout", "main"], check=True)
-
-    # Apply the stashed changes (if any)
-    if status.stdout:
-        subprocess.run(["git", "stash", "pop"], check=True)
-
     print("Changes committed and pushed successfully.")
 except subprocess.CalledProcessError as e:
     print("Error:", e)
