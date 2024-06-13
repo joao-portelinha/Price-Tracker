@@ -71,6 +71,13 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
 driver.quit()
 
 try:
+    # Check if there are any changes in the working directory
+    status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+    
+    if status.stdout:
+        # There are changes, so stash them
+        subprocess.run(["git", "stash"], check=True)
+
     # Switch to the gh-pages branch
     subprocess.run(["git", "checkout", "gh-pages"], check=True)
 
@@ -87,5 +94,14 @@ try:
 
     # Push the changes to the remote gh-pages branch
     subprocess.run(["git", "push", "origin", "gh-pages"], check=True)
+
+    # Switch back to the main branch
+    subprocess.run(["git", "checkout", "main"], check=True)
+
+    # Apply the stashed changes (if any)
+    if status.stdout:
+        subprocess.run(["git", "stash", "pop"], check=True)
+
+    print("Changes committed and pushed successfully.")
 except subprocess.CalledProcessError as e:
     print("Error:", e)
