@@ -71,13 +71,11 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
 driver.quit()
 
 try:
-    subprocess.run(["git", "stash", "--include-untracked"], check=True)
-    subprocess.run(["git", "checkout", "gh-pages"], check=True)
-    subprocess.run(["git", "stash", "apply"], check=True)
+    subprocess.run(["git", "reset", "HEAD~1"])
+    subprocess.run(["git", "checkout", "gh-pages"])
     subprocess.run(["git", "add", "."], check=True)
     subprocess.run(["git", "commit", "-m", "Update " + current_date], check=True)
     subprocess.run(["git", "push", "origin", "gh-pages"], check=True)
-    subprocess.run(["git", "stash", "drop"], check=True)
     print("Changes committed and pushed successfully.")
 except subprocess.CalledProcessError as e:
     print("Error:", e)
