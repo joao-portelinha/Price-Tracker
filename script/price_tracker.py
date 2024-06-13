@@ -71,12 +71,21 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
 driver.quit()
 
 try:
+    # Switch to the gh-pages branch
     subprocess.run(["git", "checkout", "gh-pages"], check=True)
+
+    # Pull latest changes from gh-pages branch
     subprocess.run(["git", "pull", "origin", "gh-pages"], check=True)
+
+    # Modify the CSV file (e.g., update it programmatically)
+
+    # Add the updated CSV file
     subprocess.run(["git", "add", csv_file_path], check=True)
-    subprocess.run(["git", "commit", "-m", f"Update {current_date}"], check=True)
+
+    # Commit the changes
+    subprocess.run(["git", "commit", "-m", f"Update CSV file {current_date}"], check=True)
+
+    # Push the changes to the remote gh-pages branch
     subprocess.run(["git", "push", "origin", "gh-pages"], check=True)
-    subprocess.run(["git", "checkout", "main"], check=True)
-    print("Changes committed and pushed successfully.")
 except subprocess.CalledProcessError as e:
     print("Error:", e)
