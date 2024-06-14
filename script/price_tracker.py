@@ -50,6 +50,8 @@ for product_name, url in product_urls.items():
             
     
     print(product_name, "->", price + "€ (" + merchant_tag + ")")
+    
+    subprocess.run(["git", "switch", "gh-pages"])
         
     existing_row = next((row for row in rows if row[0] == product_name), None)
     
@@ -71,11 +73,6 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
 driver.quit()
 
 try:
-    subprocess.run(["git", "add", "docs/assets/prices.csv"], check=True)
-    subprocess.run(["git", "stash"], check=True)
-    subprocess.run(["git", "checkout", "gh-pages"])
-    subprocess.run(["git", "rm", "docs/assets/prices.csv"])
-    subprocess.run(["git", "stash", "pop"], check=True)
     subprocess.run(["git", "add", "docs/assets/prices.csv"], check=True)
     subprocess.run(["git", "commit", "-m", "Update " + current_date], check=True)
     subprocess.run(["git", "push", "origin", "gh-pages"], check=True)
