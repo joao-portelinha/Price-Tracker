@@ -16,6 +16,8 @@ product_urls = {
     'Gigabyte GAMING OC Radeon RX 7800 XT':'https://pt.pcpartpicker.com/product/mHpQzy/gigabyte-gaming-oc-radeon-rx-7800-xt-16-gb-video-card-gv-r78xtgaming-oc-16gd'
 }
 
+subprocess.run(["git", "switch", "gh-pages"])
+
 ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" # Preciso para passar a verificação do site
 
 chrome_options = webdriver.ChromeOptions()
@@ -36,7 +38,6 @@ else:
     
 current_date = time.strftime("%d/%m/%Y - %H:%M:%S")
 
-subprocess.run(["git", "switch", "gh-pages"])
 
 for product_name, url in product_urls.items():
     driver.get(url)
@@ -73,11 +74,11 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
 
 driver.quit()
 
-try:
-    subprocess.run(["git", "add", "docs/assets/prices.csv"], check=True)
-    subprocess.run(["git", "commit", "-m", "Update " + current_date], check=True)
-    subprocess.run(["git", "push", "origin", "gh-pages"], check=True)
-    print("Changes committed and pushed successfully.")
-    subprocess.run(["git", "switch", "main"])
-except subprocess.CalledProcessError as e:
-    print("Error:", e)
+# try:
+#     subprocess.run(["git", "add", "docs/assets/prices.csv"], check=True)
+#     subprocess.run(["git", "commit", "-m", "Update " + current_date], check=True)
+#     subprocess.run(["git", "push", "origin", "gh-pages"], check=True)
+#     print("Changes committed and pushed successfully.")
+#     subprocess.run(["git", "switch", "main"])
+# except subprocess.CalledProcessError as e:
+#     print("Error:", e)
