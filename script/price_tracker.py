@@ -77,5 +77,6 @@ try:
     subprocess.run(["git", "commit", "-m", "Update " + current_date], check=True)
     subprocess.run(["git", "push", "origin", "gh-pages"], check=True)
     print("Changes committed and pushed successfully.")
+    subprocess.run(["git", "switch", "main"])
 except subprocess.CalledProcessError as e:
     print("Error:", e)
