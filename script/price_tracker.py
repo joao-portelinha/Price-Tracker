@@ -35,6 +35,8 @@ else:
     
 current_date = time.strftime("%d/%m/%Y - %H:%M:%S")
 
+subprocess.run(["git", "switch", "gh-pages"])
+
 for product_name, url in product_urls.items():
     driver.get(url)
     html_source = driver.page_source
@@ -50,8 +52,6 @@ for product_name, url in product_urls.items():
             
     
     print(product_name, "->", price + "€ (" + merchant_tag + ")")
-    
-    subprocess.run(["git", "switch", "gh-pages"])
         
     existing_row = next((row for row in rows if row[0] == product_name), None)
     
