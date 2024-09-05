@@ -4,6 +4,9 @@ import os
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import subprocess
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 subprocess.run(["git", "switch", "gh-pages"])
 
