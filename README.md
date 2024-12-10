@@ -1,7 +1,7 @@
 
 # Price Tracker
 
-## Not running this anymore but still working.
+## Not running this anymore but it still works.
 
 Python script that will scrape especific PCPartPicker item pages to get the best current price for each of the items to a .CSV file. Angular web page that will read and display the data from the .CSV file.
 
